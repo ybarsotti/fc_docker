@@ -5,9 +5,9 @@ WORKDIR /usr/src/app
 COPY go.mod ./
 COPY hello.go ./
 
-RUN go build -v -o . ./...
+RUN go build -v -ldflags "-s -w" -o . ./...
 
-FROM alpine:latest
+FROM scratch
 
 WORKDIR /usr/app
 
